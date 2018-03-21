@@ -1,5 +1,5 @@
 # Abandoned Carts Recovery for Open Cart
-
+For Open Cart 2.3.0.2
 
 * Self-extracting in OCMOD format
 * Quick configuration (2 options!)
