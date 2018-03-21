@@ -1,6 +1,11 @@
-# Abandoned Carts Recovery for Open Cart
+# Abandoned Carts Recovery for Open Cart v 1.0.1
 For Open Cart 2.3.0.2
 
+Languages available:
+* English
+* Arabic
+
+Features
 * Self-extracting in OCMOD format
 * Quick configuration (2 options!)
 * Unique emails customized to the prospect; complete with their first name and cart contents
@@ -33,24 +38,24 @@ As you can see from this screenshot, the system automatically will notify you if
 To trigger an email, put a checkmark beside any user you would like to get in touch with.  Once you selected user(s), click the paper airplane icon on the upper right-hand side of the page and a follow-up email will be sent from you:
 > Hi, Jane
 
-> We noticed you stopped by our shop recently and didn't complete your purchase; we just wanted to make sure this wasn't in error -- if you meant to complete checkout, you$
-
+> We noticed you stopped by our shop recently and didn't complete your purchase; we just wanted to make sure this wasn't in error -- if you meant to complete checkout, you didn't complete the payment process and thus your order wasn't placed.
+>
 > For your convenience, here's a list of what was in your cart:
 1x MacBook
-
+>
+>
 > If your bailed cart was intentional, we'd love to hear any feedback, suggestions or complaints you can offer so we can improve our store and customer experience!
-
+>
+>
+>
 > You received this message because you (or someone using your email address) recently stopped by our shop - you have not been added to any newsletter and will not receive further communication from us as a result of your order attempt (unless you explicitly signed up to our newsletter and/or product notifications). We do not forcefully sign people up to our communications.
-
 > We thank you for your interest in our merch; have an excellent day!
-
-
+>
 > Regards,
-
-
+>
 > Your Store
-
-> https://yoursiteurl/
+>
+> `https://yoursiteurl/`
 
 You can customize the verbiage by directly editing the language file: [abandoned_carts.php](./upload/admin/language/en-gb/extension/module/abandoned_carts.php)
 
@@ -68,3 +73,10 @@ You do not need to clone this repository to utilize the plugin, all you have to 
 You can also download it from the [Open Cart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=33561).
 
 I included the source in this repository for those who like to review the codebase prior to using new code.
+
+### Language Info ###
+The language the email is sent to the recipient in, is dependent upon the language of their 'profile' as they visited the site (which is typically the default language of the front-end of your store.)
+
+If you would like to contribute a new language pack, please submit as a [pull request](https://github.com/z0m8i3/abandoned-carts-opencart/pulls).
+
+Arabic language translated by [Ahmed Muhayshi](https://github.com/muhayshi)
