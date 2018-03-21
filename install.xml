@@ -3,7 +3,7 @@
     <name>Abandoned Carts</name>
     <code>abandoned_carts_oc</code>
     <description>Reach out to prospects with bailed carts; gain valuable insight to usability and recover lost sales.</description>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <author>Angela</author>
     <link>https://github.com/z0m8i3</link>
 
@@ -40,12 +40,23 @@
     </file>
 
     <file path="admin/language/en-gb/common/header.php">
-        <operation error="skip" info="Language definition for bailed carts menu entry.">
+        <operation error="skip" info="English language definition for bailed carts menu entry.">
             <search ><![CDATA[
               $_['text_order']             = 'Orders';
               ]]></search>
             <add position="after"><![CDATA[
               $_['text_bailed_carts']      = 'Bailed Carts';
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/language/ar/common/header.php">
+        <operation error="skip" info="Arabic language definition for bailed carts menu entry.">
+            <search ><![CDATA[
+              $_['text_order']             = 'الطلبات';
+              ]]></search>
+            <add position="after"><![CDATA[
+              $_['text_bailed_carts']      = 'السلات المهجورة';
             ]]></add>
         </operation>
     </file>
