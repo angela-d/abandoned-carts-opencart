@@ -37,7 +37,7 @@ As you can see from this screenshot, the system automatically will notify you if
 
 To trigger an email, put a checkmark beside any user you would like to get in touch with.  Once you selected user(s), click the paper airplane icon on the upper right-hand side of the page and a follow-up email will be sent from you:
 > Hi, Jane
-
+>
 > We noticed you stopped by our shop recently and didn't complete your purchase; we just wanted to make sure this wasn't in error -- if you meant to complete checkout, you didn't complete the payment process and thus your order wasn't placed.
 >
 > For your convenience, here's a list of what was in your cart:
@@ -68,7 +68,7 @@ Tested in a single shopping cart environment running PHP 7.0+
 
 ### Note ###
 You do not need to clone this repository to utilize the plugin, all you have to do is download the
-[zip file](abandoned-carts-v1.0.ocmod.zip).
+[zip file](abandoned-carts-v1.0.1.ocmod.zip).
 
 You can also download it from the [Open Cart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=33561).
 
