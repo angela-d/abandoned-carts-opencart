@@ -24,6 +24,7 @@ Features
 ![enable abandoned carts](./img/enable-module.png)
 * Once installed, the blue edit button will be clickable.  Click that to enter the configuration page.
 ![abandoned carts configuration](./img/config.png)
+
 Once on the configuration page, you can set how many days to go back and search for bailed carts.  Don't forget to select "Enable" to activate the plugin!
 
 **Upgrading**
@@ -88,8 +89,16 @@ I included the source in this repository for those who like to review the codeba
 ### Language Info ###
 The language the email is sent to the recipient in, is dependent upon the language of their 'profile' as they visited the site (which is typically the default language of the front-end of your store.)
 
-If you would like to contribute a new language pack, please submit as a [pull request](pulls).
+If you would like to contribute a new language pack, please see [contributing info](CONTRIBUTING.md).
 
 Arabic language translated by [Ahmed Muhayshi](https://github.com/muhayshi)
 
 Brazilian Portuguese translated by [KEVAO28](https://github.com/KEVAO28)
+
+***
+
+If this plugin is beneficial for you & you'd like to contribute to future development, [buy me a coffee](https://www.paypal.me/z0m8i3)! :smile: :coffee:
+
+| PayPal | LiberaPay |
+| --- | --- |
+| [![paypal](./img/paypal.png)](https://www.paypal.me/z0m8i3) |  ![liberapay](./img/liberapay.svg)
