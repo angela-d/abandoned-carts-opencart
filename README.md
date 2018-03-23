@@ -101,4 +101,4 @@ If this plugin is beneficial for you & you'd like to contribute to future develo
 
 | PayPal | LiberaPay |
 | --- | --- |
-| [![paypal](./img/paypal.png)](https://www.paypal.me/z0m8i3) |  ![liberapay](./img/liberapay.svg)
+| [![paypal](./img/paypal.png)](https://www.paypal.me/z0m8i3) |  [![liberapay][./img/liberapay.svg](https://liberapay.com/~34984/donate)
