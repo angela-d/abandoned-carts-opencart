@@ -58,9 +58,9 @@ class ModelExtensionModuleAbandonedCarts extends Model {
 	}
 
 	public function getOrders($data = array()) {
-		$sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.ip, o.user_agent, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified, o.abandoned FROM `" . DB_PREFIX . "order` o";
+		$sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.ip, o.user_agent, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified, o.abandoned FROM `" . DB_PREFIX . "order` o";
 
-		$sql .= " WHERE date_added >= DATE(NOW()) - INTERVAL ".$data['days']." DAY && o.order_status_id = '0'";
+		$sql .= " WHERE o.order_status_id = '0' && date_added >= DATE(NOW()) - INTERVAL ".$data['days']." DAY";
 
 		$sort_data = array(
 			'o.order_id',
@@ -103,7 +103,7 @@ class ModelExtensionModuleAbandonedCarts extends Model {
 	}
 
 	public function getTotalOrders($data = array()) {
-		$query = $this->db->query("SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "order` WHERE order_status_id = '0' && abandoned='0'");
+		$query = $this->db->query("SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "order` WHERE order_status_id = '0' && abandoned='0' && date_added >= DATE(NOW()) - INTERVAL ".$data['days']." DAY");
 
 		return $query->row['total'];
 	}
