@@ -80,7 +80,7 @@ Tested in a single shopping cart environment running PHP 7.0+
 
 ### Note ###
 You do not need to clone this repository to utilize the plugin, all you have to do is download the
-[zip file](releases).
+[zip file](./../../releases).
 
 You can also download it from the [Open Cart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=33561).
 
