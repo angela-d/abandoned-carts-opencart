@@ -1,15 +1,18 @@
-# Abandoned Carts Recovery for Open Cart v 1.0.1
+# Abandoned Carts Recovery for Open Cart v 1.0.2
 For Open Cart 2.3.0.2
 
 Languages available:
 * English
 * Arabic
+* Brazilian Portuguese
 
 Features
 * Self-extracting in OCMOD format
 * Quick configuration (2 options!)
 * Unique emails customized to the prospect; complete with their first name and cart contents
 * No technical skill required for use; tick a checkbox, click send and you're done.
+
+***
 
 **To Install**
 
@@ -22,6 +25,14 @@ Features
 * Once installed, the blue edit button will be clickable.  Click that to enter the configuration page.
 ![abandoned carts configuration](./img/config.png)
 Once on the configuration page, you can set how many days to go back and search for bailed carts.  Don't forget to select "Enable" to activate the plugin!
+
+**Upgrading**
+* Download the .zip (ensure you have the latest version number; unless you wish to downgrade) and upload it similarly to how you did while initially installing
+* You will be prompted with a list of files that will be "replaced" (all will be files native to this extension; click Continue to proceed)
+* Head to Modifications on the navigation menu -> clear cache (orange button, then blue button on the right)
+You should now be upgraded to the latest version.
+
+***
 
 ## Usage ##
 
@@ -68,7 +79,7 @@ Tested in a single shopping cart environment running PHP 7.0+
 
 ### Note ###
 You do not need to clone this repository to utilize the plugin, all you have to do is download the
-[zip file](abandoned-carts-v1.0.1.ocmod.zip).
+[zip file](releases).
 
 You can also download it from the [Open Cart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=33561).
 
@@ -77,6 +88,8 @@ I included the source in this repository for those who like to review the codeba
 ### Language Info ###
 The language the email is sent to the recipient in, is dependent upon the language of their 'profile' as they visited the site (which is typically the default language of the front-end of your store.)
 
-If you would like to contribute a new language pack, please submit as a [pull request](https://github.com/z0m8i3/abandoned-carts-opencart/pulls).
+If you would like to contribute a new language pack, please submit as a [pull request](pulls).
 
 Arabic language translated by [Ahmed Muhayshi](https://github.com/muhayshi)
+
+Brazilian Portuguese translated by [KEVAO28](https://github.com/KEVAO28)
