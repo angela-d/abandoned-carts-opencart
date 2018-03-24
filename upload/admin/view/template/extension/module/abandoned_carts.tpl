@@ -26,6 +26,26 @@
       <div class="panel-body">
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-abandoned_carts" class="form-horizontal">
           <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-abandoned-criteria"><span data-toggle="tooltip" title="<?php echo $help_abandoned_status; ?>"><?php echo $entry_abandoned_status; ?></span></label>
+            <div class="col-sm-10">
+              <div class="well well-sm" style="height: 150px; overflow: auto;">
+                <?php foreach ($abandoned_statuses as $criteria) { ?>
+                <div class="checkbox">
+                  <label>
+                    <?php if (in_array($criteria['order_status_id'], $abandoned_carts_criteria)) { ?>
+                    <input type="checkbox" name="abandoned_carts_criteria[]" value="<?php echo $criteria['order_status_id']; ?>" checked="checked" />
+                    <?php echo $criteria['name']; ?>
+                    <?php } else { ?>
+                    <input type="checkbox" name="abandoned_carts_criteria[]" value="<?php echo $criteria['order_status_id']; ?>" />
+                    <?php echo $criteria['name']; ?>
+                    <?php } ?>
+                  </label>
+                </div>
+                <?php } ?>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
             <label class="col-sm-2 control-label" for="input-limit"><?php echo $entry_limit; ?></label>
             <div class="col-sm-10">
               <input type="text" name="abandoned_carts_limit" value="<?php echo $abandoned_carts_limit; ?>" placeholder="<?php echo $entry_limit; ?>" id="input-limit" class="form-control" />

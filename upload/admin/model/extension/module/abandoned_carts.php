@@ -21,7 +21,7 @@ class ModelExtensionModuleAbandonedCarts extends Model {
 		foreach ($order_product_query->rows as $product) {
 			$data['products'] = array();
 				$data['products'][] = array(
-					'name'     => $product['name']
+					'name' => $product['name']
 				);
 		}
 
@@ -38,18 +38,17 @@ class ModelExtensionModuleAbandonedCarts extends Model {
 		$text .= $order_info['store_url'] . "\n";
 
 		$mail = new Mail();
-		$mail->protocol = $this->config->get('config_mail_protocol');
-		$mail->parameter = $this->config->get('config_mail_parameter');
+		$mail->protocol      = $this->config->get('config_mail_protocol');
+		$mail->parameter     = $this->config->get('config_mail_parameter');
 		$mail->smtp_hostname = $this->config->get('config_mail_smtp_hostname');
 		$mail->smtp_username = $this->config->get('config_mail_smtp_username');
 		$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
-		$mail->smtp_port = $this->config->get('config_mail_smtp_port');
-		$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
-
+		$mail->smtp_port     = $this->config->get('config_mail_smtp_port');
+		$mail->smtp_timeout  = $this->config->get('config_mail_smtp_timeout');
 		$mail->setTo($order_info['email']);
 		$mail->setFrom($this->config->get('config_email'));
 		$mail->setSender($order_info['store_name']);
-		$mail->setSubject('Incomplete Order at '.$order_info['store_name']);
+		$mail->setSubject($language->get('subject_prefix').' '.$order_info['store_name']);
 		$mail->setText($text);
 		$mail->send();
 
@@ -58,9 +57,19 @@ class ModelExtensionModuleAbandonedCarts extends Model {
 	}
 
 	public function getOrders($data = array()) {
+		$implode = array();
+
+		if ($this->config->get('abandoned_carts_criteria')){
+			foreach ($this->config->get('abandoned_carts_criteria') as $criteria) {
+				$implode[] = "'" . (int)$criteria . "'";
+			}
+
+		$criteria_statuses = implode(" OR ", $implode);
+		}
+
 		$sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.ip, o.user_agent, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified, o.abandoned FROM `" . DB_PREFIX . "order` o";
 
-		$sql .= " WHERE o.order_status_id = '0' && date_added >= DATE(NOW()) - INTERVAL ".$data['days']." DAY";
+		$sql .= " WHERE date_added >= DATE_SUB(NOW(), INTERVAL ".$this->config->get('abandoned_carts_limit')." DAY) && (o.order_status_id ='0' || o.order_status_id = " . $criteria_statuses . ")";
 
 		$sort_data = array(
 			'o.order_id',
@@ -103,8 +112,17 @@ class ModelExtensionModuleAbandonedCarts extends Model {
 	}
 
 	public function getTotalOrders($data = array()) {
-		$query = $this->db->query("SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "order` WHERE order_status_id = '0' && abandoned='0' && date_added >= DATE(NOW()) - INTERVAL ".$data['days']." DAY");
+		$implode = array();
 
+		if ($this->config->get('abandoned_carts_criteria')){
+			foreach ($this->config->get('abandoned_carts_criteria') as $criteria) {
+				$implode[] = "'" . (int)$criteria . "'";
+			}
+
+		$criteria_statuses = implode(" OR ", $implode);
+		}
+
+		$query = $this->db->query("SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "order` WHERE abandoned='0' && date_added >= DATE_SUB(NOW(), INTERVAL ".$this->config->get('abandoned_carts_limit')." DAY) && (order_status_id ='0' || order_status_id = " . $criteria_statuses . ")");
 		return $query->row['total'];
 	}
 

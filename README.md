@@ -1,5 +1,7 @@
-# Abandoned Carts Recovery for Open Cart v 1.0.2
+# Abandoned Carts Recovery for Open Cart v 1.1
 For Open Cart 2.3.0.2
+
+For a list of improvements & fixes, see the [changelog](changelog.md).
 
 Languages available:
 * English
@@ -8,30 +10,17 @@ Languages available:
 
 Features
 * Self-extracting in OCMOD format
-* Quick configuration (2 options!)
+* Quick configuration (3 options!)
 * Unique emails customized to the prospect; complete with their first name and cart contents
 * No technical skill required for use; tick a checkbox, click send and you're done.
 
 ***
 
-**To Install**
 
-* Download the .zip file and in admin (left navigation menu) -> Extensions Installer
-* Click Upload & select the .zip
-* Clear Modifications cache (orange button, then blue button on the right):
-![clear modifications](./img/clear-mods.png)
-* Enable Abandoned Carts Extension by going to Extensions (left navigation menu; then clicking the green button to the right of Abandoned Carts)
-![enable abandoned carts](./img/enable-module.png)
-* Once installed, the blue edit button will be clickable.  Click that to enter the configuration page.
-![abandoned carts configuration](./img/config.png)
+## [:link: Install Instructions](install-instructions.md) ##
 
-Once on the configuration page, you can set how many days to go back and search for bailed carts.  Don't forget to select "Enable" to activate the plugin!
+## [:link: Upgrade Instructions](upgrade-instructions.md) ##
 
-**Upgrading**
-* Download the .zip (ensure you have the latest version number; unless you wish to downgrade) and upload it similarly to how you did while initially installing
-* You will be prompted with a list of files that will be "replaced" (all will be files native to this extension; click Continue to proceed)
-* Head to Modifications on the navigation menu -> clear cache (orange button, then blue button on the right)
-You should now be upgraded to the latest version.
 
 ***
 
