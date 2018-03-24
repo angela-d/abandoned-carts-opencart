@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
     <name>Abandoned Carts</name>
-    <code>abandoned_carts_ocv102</code>
+    <code>abandoned_carts_ocv11</code>
     <description>Reach out to prospects with bailed carts; gain valuable insight to usability and recover lost sales.</description>
-    <version>1.0.2</version>
+    <version>1.1</version>
     <author>Angela</author>
     <link>https://github.com/z0m8i3</link>
 
@@ -24,7 +24,7 @@
               $this->load->model('extension/module/abandoned_carts');
 
         			// Bailed Carts
-              $bailed_carts_total         = ($this->config->get('abandoned_carts_status') == '1') ? $this->model_extension_module_abandoned_carts->getTotalOrders(array('days' => $this->config->get('abandoned_carts_limit'))) : '0';
+              $bailed_carts_total         = ($this->config->get('abandoned_carts_status') == '1') ? $this->model_extension_module_abandoned_carts->getTotalOrders() : '0';
         			$data['bailed_carts_total'] = $bailed_carts_total;
         			$data['bailed_carts']       = $this->url->link('report/abandoned_carts', 'token=' . $this->session->data['token'], true);
             ]]></add>

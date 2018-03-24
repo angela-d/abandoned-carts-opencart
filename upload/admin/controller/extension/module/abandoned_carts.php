@@ -36,26 +36,33 @@ class ControllerExtensionModuleAbandonedCarts extends Controller {
 			$this->response->redirect($this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=module', true));
 		}
 
-		$data['heading_title']    = $this->language->get('heading_title');
+		$data['heading_title']           = $this->language->get('heading_title');
 
-		$data['text_edit']        = $this->language->get('text_edit');
-		$data['text_enabled']     = $this->language->get('text_enabled');
-		$data['text_disabled']    = $this->language->get('text_disabled');
+		$data['text_edit']               = $this->language->get('text_edit');
+		$data['text_enabled']            = $this->language->get('text_enabled');
+		$data['text_disabled']           = $this->language->get('text_disabled');
 
-		$data['entry_name']       = $this->language->get('entry_name');
-		$data['entry_limit']      = $this->language->get('entry_limit');
-		$data['entry_limit']      = $this->language->get('entry_limit');
-		$data['entry_limit_info'] = $this->language->get('entry_limit_info');
-		$data['entry_status']     = $this->language->get('entry_status');
+		$data['entry_name']              = $this->language->get('entry_name');
+		$data['entry_abandoned_status']  = $this->language->get('entry_abandoned_status');
+		$data['entry_limit']             = $this->language->get('entry_limit');
+		$data['entry_limit_info']        = $this->language->get('entry_limit_info');
+		$data['entry_status']            = $this->language->get('entry_status');
 
-		$data['button_save']      = $this->language->get('button_save');
-		$data['button_cancel']    = $this->language->get('button_cancel');
+		$data['help_abandoned_status']	 = $this->language->get('help_abandoned_status');
+
+		$data['button_save']             = $this->language->get('button_save');
+		$data['button_cancel']           = $this->language->get('button_cancel');
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
 		} else {
 			$data['error_warning'] = '';
 		}
+
+		// allow the shop admin to specify which status(es) are deemed abandoned
+		$this->load->model('localisation/order_status');
+
+		$data['abandoned_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
 
 		if (isset($this->error['limit'])) {
 			$data['error_limit'] = $this->error['limit'];
@@ -96,6 +103,14 @@ class ControllerExtensionModuleAbandonedCarts extends Controller {
 		$data['action'] = $this->url->link('extension/module/abandoned_carts', 'token=' . $this->session->data['token'], true);
 
 		$data['cancel'] = $this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=module', true);
+
+		if (isset($this->request->post['abandoned_carts_criteria'])) {
+			$data['abandoned_carts_criteria'] = $this->request->post['abandoned_carts_criteria'];
+		} elseif ($this->config->get('abandoned_carts_criteria')) {
+			$data['abandoned_carts_criteria'] = $this->config->get('abandoned_carts_criteria');
+		} else {
+			$data['abandoned_carts_criteria'] = array();
+		}
 
 		if (isset($this->request->post['abandoned_carts_limit'])) {
 			$data['abandoned_carts_limit'] = $this->request->post['abandoned_carts_limit'];
