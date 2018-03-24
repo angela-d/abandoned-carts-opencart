@@ -17,7 +17,7 @@ Features
 ***
 
 
-## [:link: Install Instructions](install-instructions.md) ##
+## [:link: Install Instructions](installing-instructions.md) ##
 
 ## [:link: Upgrade Instructions](upgrade-instructions.md) ##
 
