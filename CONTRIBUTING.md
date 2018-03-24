@@ -32,7 +32,7 @@ Don't forget to re-package the /upload/ directory and install.xml into a .zip
 
 ### How to Make a Pull Request ###
 
-* [Fork this repository](abandoned-carts-opencart) (the fork button is usually just beneath your avatar)
+* [Fork this repository](../../../abandoned-carts-opencart) (the fork button is usually just beneath your avatar)
 * This will copy the repository to your Github account. You can then navigate through the source code & make changes.
 * Once you are ready to submit your changes, [submit a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) - this button is typically available on the main page of *your* repository
 
