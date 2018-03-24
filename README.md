@@ -1,4 +1,4 @@
-# Abandoned Carts Recovery for Open Cart v 1.1
+# Abandoned Carts Recovery for Open Cart v 1.1.1
 For Open Cart 2.3.0.2
 
 For a list of improvements & fixes, see the [changelog](changelog.md).
@@ -80,7 +80,7 @@ The language the email is sent to the recipient in, is dependent upon the langua
 
 If you would like to contribute a new language pack, please see [contributing info](CONTRIBUTING.md).
 
-Arabic language translated by [Ahmed Muhayshi](https://github.com/muhayshi)
+Arabic language translated by [Ahmed Muhayshi](https://github.com/muhayshi) and [7oda187](https://github.com/7oda187) 
 
 Brazilian Portuguese translated by [KEVAO28](https://github.com/KEVAO28)
 
