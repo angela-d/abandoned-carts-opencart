@@ -1,3 +1,5 @@
+These are instructions for *you* to follow if you want to contribute; this extension is open source, so you are free to modify any part of it, so as long as your contribution is useful and fall within the suggested guidelines:
+
 ### If you are submitting code changes ###
 Submit a [pull request](../../pulls) - I will not merge code from issues attachments!
 
@@ -19,7 +21,7 @@ and
 ```xml
 <version>1.0.2</version>
 ```
-The version numbers are an assessment of changes from the previous version to the new version.  As a general rule of thumb:
+The version numbers are an assessment of changes from the previous version to the new version.  As a general rule of thumb, follow this example chart to know how many numbers to increment:
 
 | Type of Change  | Version Increment | Previous Version | New Version |
 | ------------- | ------------- | ------------- | ------------- |
@@ -34,7 +36,7 @@ Don't forget to re-package the /upload/ directory and install.xml into a .zip
 
 * [Fork this repository](../../../abandoned-carts-opencart) (the fork button is usually just beneath your avatar)
 * This will copy the repository to your Github account. You can then navigate through the source code & make changes.
-* Once you are ready to submit your changes, [submit a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) - this button is typically available on the main page of *your* repository
+* Once you are ready to submit ALL of your changes (please do not send a single PR per file change; send them all in one swoop - Github will keep track of everything for you), [submit a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) - this button is typically available on the main page of *your* repository
 
 Pull requests are preferred because your contribution can be automatically merged into the codebase without affecting the code around it.
 
