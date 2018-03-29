@@ -4,6 +4,8 @@
     <div class="container-fluid">
       <div class="pull-right">
         <button type="button" id="button-recover" form="form-order" formaction="<?php echo $recover; ?>" data-toggle="tooltip" title="<?php echo $button_recover; ?>" class="btn btn-info"><i class="fa fa-paper-plane"></i></button>
+        &nbsp; &nbsp; &nbsp;
+        <button type="button" id="button-delete" form="form-order" formaction="<?php echo $delete; ?>" data-toggle="tooltip" title="<?php echo $button_delete; ?>" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
       </div>
       <h1><?php echo $heading_title; ?></h1>
       <ul class="breadcrumb">
@@ -129,6 +131,15 @@
   </div>
 <script type="text/javascript"><!--
 $('#button-recover').on('click', function(e) {
+	$('#form-order').attr('action', this.getAttribute('formAction'));
+
+	if (confirm('<?php echo $text_confirm; ?>')) {
+		$('#form-order').submit();
+	} else {
+		return false;
+	}
+});
+$('#button-delete').on('click', function(e) {
 	$('#form-order').attr('action', this.getAttribute('formAction'));
 
 	if (confirm('<?php echo $text_confirm; ?>')) {

@@ -1,12 +1,14 @@
 <?php
 // Heading
 $_['heading_title']        = 'سلة المشتريات المتروكة';
-$_['button_recover']       = 'أرسل رسالة إلكترونية لجميع السلات المحدده'; 
+$_['button_recover']       = 'أرسل رسالة إلكترونية لجميع السلات المحدده';
 
 // Text
 $_['text_list']            = 'نظرة عامة لسلة المشتريات المختارة';
 $_['text_missing']         = 'طلبات غير مكتملة';
+$_['text_search']          = 'If no transactions appear in the customer search, the records counted are bailed carts';
 $_['text_success']         = 'تم ارسال رسالة إلكترونية الى سلة المشتريات المختارة';
+$_['text_deleted']         = 'Selected transaction(s) have been deleted';
 
 // Column
 $_['column_order_id']      = 'رقم الطلب';

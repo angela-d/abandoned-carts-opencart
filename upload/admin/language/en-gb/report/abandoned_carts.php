@@ -6,7 +6,9 @@ $_['button_recover']       = 'Send a message to selected bailed carts';
 // Text
 $_['text_list']            = 'Bailed Cart Overview';
 $_['text_missing']         = 'Missing Orders';
+$_['text_search']          = 'If no transactions appear in the customer search, the records counted are bailed carts';
 $_['text_success']         = 'An email has been sent to selected carts!';
+$_['text_deleted']         = 'Selected transaction(s) have been deleted';
 
 // Column
 $_['column_order_id']      = 'Order ID';
