@@ -79,7 +79,8 @@ class ControllerReportAbandonedCarts extends Controller {
 			'href' => $this->url->link('report/abandoned_carts', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
-		$data['recover'] = $this->url->link('report/abandoned_carts/recover', 'token=' . $this->session->data['token'], true);
+		$data['recover'] = $this->url->link('report/abandoned_carts/recover', 'token =' . $this->session->data['token'], true);
+		$data['delete']  = $this->url->link('report/abandoned_carts/delete', 'token=' . $this->session->data['token'], true);
 		$data['orders']  = array();
 
 		$filter_data = array(
@@ -109,7 +110,7 @@ class ControllerReportAbandonedCarts extends Controller {
 				'user_agent'      => $result['user_agent'],
 				'abandoned'       => $result['abandoned'],
 				'duplicate_count' => $existing_carts,
-				'duplicate'       => ($result['abandoned'] =='0' && $existing_carts > 0) ? sprintf($this->language->get('warning_duplicate'),$existing_carts,$result['customer']) : ''
+				'duplicate'       => ($result['abandoned'] =='0' && $existing_carts > 0) ? sprintf($this->language->get('warning_duplicate'),$existing_carts,'<a data-toggle="tooltip" title="" data-original-title="'.$this->language->get('text_search').'" href="'.$this->url->link('customer/customer', 'token=' . $this->session->data['token'].'&filter_ip='.$result['ip'], true).'">'.$result['customer'].'</a>') : ''
 			);
 		}
 
@@ -204,6 +205,27 @@ class ControllerReportAbandonedCarts extends Controller {
 		$data['footer']         = $this->load->controller('common/footer');
 
 		$this->response->setOutput($this->load->view('report/abandoned_carts', $data));
+	}
+
+
+	public function delete() {
+		$this->load->language('report/abandoned_carts');
+
+		$this->document->setTitle($this->language->get('heading_title'));
+
+		$this->load->model('extension/module/abandoned_carts');
+
+		if (isset($this->request->post['selected']) && $this->validate()) {
+			foreach ($this->request->post['selected'] as $order_id) {
+				$this->model_extension_module_abandoned_carts->deleteOrder($order_id);
+			}
+
+			$this->session->data['success'] = $this->language->get('text_deleted');
+
+			$this->response->redirect($this->url->link('report/abandoned_carts', 'token=' . $this->session->data['token'], true));
+		}
+
+		$this->getList();
 	}
 
 	protected function validate() {
