@@ -5,7 +5,7 @@
     <description>Reach out to prospects with bailed carts; gain valuable insight to usability and recover lost sales.</description>
     <version>1.2.2</version>
     <author>Angela</author>
-    <link>https://github.com/z0m8i3</link>
+    <link>https://github.com/angela-d</link>
 
     <file path="admin/controller/common/header.php">
       <operation error="skip" info="Language call for the abandoned carts menu link.">
