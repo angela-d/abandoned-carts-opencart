@@ -79,7 +79,7 @@ class ControllerReportAbandonedCarts extends Controller {
 			'href' => $this->url->link('report/abandoned_carts', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
-		$data['recover'] = $this->url->link('report/abandoned_carts/recover', 'token =' . $this->session->data['token'], true);
+		$data['recover'] = $this->url->link('report/abandoned_carts/recover', 'token=' . $this->session->data['token'], true);
 		$data['delete']  = $this->url->link('report/abandoned_carts/delete', 'token=' . $this->session->data['token'], true);
 		$data['orders']  = array();
 
