@@ -61,7 +61,7 @@
         </operation>
     </file>
 
-    <file path="admin/language/pr-br/common/header.php">
+    <file path="admin/language/pt-br/common/header.php">
         <operation error="skip" info="Brazilian Portugese language definition for bailed carts menu entry.">
             <search ><![CDATA[
               $_['text_order']             = 'Encomendas';
