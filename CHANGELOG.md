@@ -2,6 +2,7 @@
 
 | Changes | Release |
 | -- | -- |
+| Portueguese language fixes | 1.2.4 |
 | Bugfix in email dispatch for bailed carts | 1.2.3 |
 | <ul><li>Search by customer IP from Bailed Carts dashboard</li><li>Compatibility fix for users utilizing Onepage  checkouts</li><li>Deletion capability from Bailed Cart dashboard added</li></ul> | 1.2.2 |
 | Portuguese language updates by [KEVAO28](https://github.com/KEVAO28) | 1.1.2 |
