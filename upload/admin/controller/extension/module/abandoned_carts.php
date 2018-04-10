@@ -7,12 +7,11 @@ class ControllerExtensionModuleAbandonedCarts extends Controller {
 			TINYINT(1) NOT NULL DEFAULT '0' AFTER `date_modified`;
 		");
 
-		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'access', 'report/abandoned_carts/' . $this->request->get['extension']);
-		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'modify', 'report/abandoned_carts/' . $this->request->get['extension']);
+		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'access', 'report/' . $this->request->get['extension']);
+		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'modify', 'report/' . $this->request->get['extension']);
 
-		// Compatibility
-		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'access', 'report/abandoned_carts/' . $this->request->get['extension']);
-		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'modify', 'report/abandoned_carts/' . $this->request->get['extension']);
+		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'access', 'controller/extension/module/' . $this->request->get['extension']);
+		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'modify', 'controller/extension/module/' . $this->request->get['extension']);
 	}
 
 	public function uninstall() {
