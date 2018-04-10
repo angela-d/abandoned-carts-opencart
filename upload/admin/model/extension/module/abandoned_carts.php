@@ -69,7 +69,11 @@ class ModelExtensionModuleAbandonedCarts extends Model {
 
 		$sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.ip, o.user_agent, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified, o.abandoned FROM `" . DB_PREFIX . "order` o";
 
-		$sql .= " WHERE o.date_added >= DATE_SUB(NOW(), INTERVAL ".$this->config->get('abandoned_carts_limit')." DAY) && o.firstname !='' && lastname !='' && (o.order_status_id ='0' || o.order_status_id = " . $criteria_statuses . ")";
+		$sql .= " WHERE o.date_added >= DATE_SUB(NOW(), INTERVAL ".$this->config->get('abandoned_carts_limit')." DAY) && o.firstname !='' && lastname !='' && order_status_id=0";
+
+		if (!empty($implode)){
+			$sql .= " || order_status_id = " . $criteria_statuses;
+		}
 
 		$sort_data = array(
 			'o.order_id',
@@ -115,14 +119,22 @@ class ModelExtensionModuleAbandonedCarts extends Model {
 		$implode = array();
 
 		if ($this->config->get('abandoned_carts_criteria')){
+
 			foreach ($this->config->get('abandoned_carts_criteria') as $criteria) {
 				$implode[] = "'" . (int)$criteria . "'";
-			}
 
-		$criteria_statuses = implode(" OR ", $implode);
+				$criteria_statuses = implode(" OR ", $implode);
+			}
 		}
 
-		$query = $this->db->query("SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "order` WHERE abandoned='0' && date_added >= DATE_SUB(NOW(), INTERVAL ".$this->config->get('abandoned_carts_limit')." DAY) && firstname !='' && lastname !='' && (order_status_id ='0' || order_status_id = " . $criteria_statuses . ")");
+		$sql = "SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "order` WHERE abandoned='0' && date_added >= DATE_SUB(NOW(), INTERVAL ".$this->config->get('abandoned_carts_limit')." DAY) && firstname !='' && lastname !='' && order_status_id=0";
+
+		if (!empty($implode)){
+			$sql .= " || order_status_id = " . $criteria_statuses;
+		}
+
+		$query = $this->db->query($sql);
+
 		return $query->row['total'];
 	}
 
@@ -162,5 +174,5 @@ class ModelExtensionModuleAbandonedCarts extends Model {
 		// Delete voucher data as well
 		$this->db->query("DELETE FROM `" . DB_PREFIX . "voucher` WHERE order_id = '" . (int)$order_id . "'");
 		$this->db->query("DELETE FROM `" . DB_PREFIX . "voucher_history` WHERE order_id = '" . (int)$order_id . "'");
-	}	
+	}
 }
