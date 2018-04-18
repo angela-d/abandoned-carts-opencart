@@ -2,6 +2,7 @@
 
 | Changes | Release |
 | -- | -- |
+| Missing Portugese language reference fix (header pull-down) | 1.2.6-lang |
 | <ul><li>Bugfix for unselected criterias (if you selected additional status criterias, you are unaffected by this bug)</li><li>Permissions fix for first-time users</li></ul> | 1.2.6 |
 | Portueguese language fixes | 1.2.4 |
 | Bugfix in email dispatch for bailed carts | 1.2.3 |

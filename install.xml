@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
     <name>Abandoned Carts</name>
-    <code>abandoned_carts_ocv123</code>
+    <code>abandoned_carts_ocv126lang</code>
     <description>Reach out to prospects with bailed carts; gain valuable insight to usability and recover lost sales.</description>
-    <version>1.2.6</version>
+    <version>1.2.6-lang</version>
     <author>Angela</author>
     <link>https://github.com/angela-d</link>
 
@@ -63,6 +63,17 @@
 
     <file path="admin/language/pt-br/common/header.php">
         <operation error="skip" info="Brazilian Portugese language definition for bailed carts menu entry.">
+            <search ><![CDATA[
+              $_['text_order']             = 'Encomendas';
+              ]]></search>
+            <add position="after"><![CDATA[
+              $_['text_bailed_carts']      = 'Carrinhos abandonados;
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/language/pt-pt/common/header.php">
+        <operation error="skip" info="Portugese language definition for bailed carts menu entry.">
             <search ><![CDATA[
               $_['text_order']             = 'Encomendas';
               ]]></search>
