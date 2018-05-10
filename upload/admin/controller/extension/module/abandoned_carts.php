@@ -111,17 +111,19 @@ class ControllerExtensionModuleAbandonedCarts extends Controller {
 			$data['abandoned_carts_criteria'] = array();
 		}
 
+		$abandoned_carts_limit = $this->config->get('abandoned_carts_limit');
 		if (isset($this->request->post['abandoned_carts_limit'])) {
 			$data['abandoned_carts_limit'] = $this->request->post['abandoned_carts_limit'];
-		} elseif (!empty($this->config->get('abandoned_carts_limit'))) {
+		} elseif (!empty($abandoned_carts_limit)) {
 			$data['abandoned_carts_limit'] = $this->config->get('abandoned_carts_limit');
 		} else {
 			$data['abandoned_carts_limit'] = 5;
 		}
 
+		$abandoned_carts_status = $this->config->get('abandoned_carts_status');
 		if (isset($this->request->post['abandoned_carts_status'])) {
 			$data['abandoned_carts_status'] = $this->request->post['abandoned_carts_status'];
-		} elseif (!empty($this->config->get('abandoned_carts_status'))) {
+		} elseif (!empty($abandoned_carts_status)) {
 			$data['abandoned_carts_status'] = $this->config->get('abandoned_carts_status');
 		} else {
 			$data['abandoned_carts_status'] = '';
