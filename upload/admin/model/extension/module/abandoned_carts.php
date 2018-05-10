@@ -47,8 +47,8 @@ class ModelExtensionModuleAbandonedCarts extends Model {
 		$mail->smtp_timeout  = $this->config->get('config_mail_smtp_timeout');
 		$mail->setTo($order_info['email']);
 		$mail->setFrom($this->config->get('config_email'));
-		$mail->setSender($order_info['store_name']);
-		$mail->setSubject($language->get('subject_prefix').' '.$order_info['store_name']);
+		$mail->setSender(html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8'));
+		$mail->setSubject($language->get(html_entity_decode('subject_prefix').' '.$order_info['store_name']));
 		$mail->setText($text);
 		$mail->send();
 
@@ -69,7 +69,7 @@ class ModelExtensionModuleAbandonedCarts extends Model {
 
 		$sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.ip, o.user_agent, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified, o.abandoned FROM `" . DB_PREFIX . "order` o";
 
-		$sql .= " WHERE o.date_added >= DATE_SUB(NOW(), INTERVAL ".$this->config->get('abandoned_carts_limit')." DAY) && o.firstname !='' && lastname !='' && order_status_id=0";
+		$sql .= " WHERE o.date_added >= DATE_SUB(NOW(), INTERVAL ".$this->config->get('abandoned_carts_limit')." DAY) && NOW() >= DATE_ADD(o.date_added, INTERVAL 1 HOUR) && o.firstname !='' && lastname !='' && order_status_id=0";
 
 		if (!empty($implode)){
 			$sql .= " || order_status_id = " . $criteria_statuses;
