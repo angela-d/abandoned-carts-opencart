@@ -2,6 +2,7 @@
 
 | Changes | Release |
 | -- | -- |
+| Criteria bugfix | 1.2.8 |
 | <ul><li>Legacy PHP compatibility</li><li>Special character bugfix</li><li>Ignore bailed carts < 1 hr old</li></ul> | 1.2.7 |
 | Missing Portugese language reference fix (header pull-down) | 1.2.6-lang |
 | <ul><li>Bugfix for unselected criterias (if you selected additional status criterias, you are unaffected by this bug)</li><li>Permissions fix for first-time users</li></ul> | 1.2.6 |
