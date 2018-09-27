@@ -48,7 +48,7 @@ class ModelExtensionModuleAbandonedCarts extends Model {
 		$mail->setTo($order_info['email']);
 		$mail->setFrom($this->config->get('config_email'));
 		$mail->setSender(html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8'));
-		$mail->setSubject($language->get(html_entity_decode('subject_prefix').' '.$order_info['store_name']));
+		$mail->setSubject($language->get(html_entity_decode($language->get('subject_prefix')).' '.$order_info['store_name']));
 		$mail->setText($text);
 		$mail->send();
 
